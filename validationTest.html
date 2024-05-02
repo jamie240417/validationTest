@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #reviewInput {
+            width: 500px;
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+    <script>
+ const 
+
+        const userName = document.querySelector("#userName");
+        const userPassword = document.querySelector("#userPassword");
+        const reviewInput = document.querySelector("#reviewInput");
+        const submit = document.querySelector("#submit");
+        //html 요소들과 연결해주기
+
+        reviewInput.onkeyup = function () {
+            if (reviewInput.innerText.length >= 10) {
+                failureMessage.classList.add("hide");
+            } else {
+                failureMessage.classList.remove("hide");
+            }
+        } /*기존: if (reviewInput.innerText.length >= 10) 를 사용하여, reviewInput안의 text길이를 재려했으나, 
+        reviewInput가 실제로는 input요소가 아닌 div요소여서 'length'  reviewInput.innerText.length 로 변경하였으나 
+        작동이 되지않음. 이부분은 튜터님에게 여쭤보자*/
+
+        userPassword.onkeyup = function(){
+            if(userPassword.length === 4) {
+                failureMessage.classList.add("hide");
+            } else {
+                failureMessage.classList.remove("hide");
+            }
+        }
+        userPassword.userName = function(){
+            if(userPassword.length != 0) {
+                failureMessage.classList.add("hide");
+            } else {
+                failureMessage.classList.remove("hide");
+            }
+        }
+
+        button.onclick = function(){ //버튼 클릭시 입력창에 빈곳이 없다면
+            if(userName.value !== 0 "" && userPassword.value !== 0 "" &&  reviewInput.value !== 0){
+                //버튼 작동가능 기능 넣어주기!
+            }
+            else {
+                alert(`모든 항목을 입력해주세요!`),
+                //버튼 작동 불가능 기능 넣어주기
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <form id="target">
+        <input id="userName" type="text" placeholder="작성자명을 입력해주세요">
+        <div class="failure-message hide font">작성자명을 입력해주세요</div>
+        <input id="userPassword" type="Password" placeholder="숫자 4글자를 입력해주세요"><br>
+        <div class="failure-message hide font">숫자 4글자를 입력해주세요</div>
+        <input id="reviewInput" type="text" placeholder="리뷰를 10글자 이상 입력해주세요">
+        <div class="failure-message hide font">리뷰를 10글자 이상 입력해주세요</div>
+        <input type='submit' value='리뷰작성'>
+    </form>
+</body>
+
+</html>
